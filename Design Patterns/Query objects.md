@@ -1,4 +1,4 @@
-Query Objects store complex SQL queries, data aggregation, and filtering methods.
+Query objects store complex SQL queries, data aggregation, and filtering methods.
 
 The goal of this pattern is to remove code for querying sets of objects from
 models/controllers and provide a simple yet powerful interface for complex
@@ -28,7 +28,7 @@ objects by default.
   ArticlesQuery.new(Article.where(published: true))
 ```
 
-Query Objects can be used in model scopes and relation conditions.
+Query objects can be used in model scopes and relation conditions.
 They should be accessible and useable from any location in your codebase.
 
 ```Ruby
@@ -42,7 +42,7 @@ end
 
 ## Implementation
 
-Each Query Object implementation should resemble the following example:
+Each query object implementation should resemble the following example:
 
 ```Ruby
 class ArticlesQuery
@@ -120,12 +120,12 @@ end
 
 It doesn't matter if we put this code in a controller or in a model, it simply
 doesn't belong there. A model's job isn't to handle querying logic, query
-logic in a controller isn't reusable and it makes the controller 'fat'.
+logic in a controller isn't reusable, and it makes the controller 'fat'.
 
 ## Good solution
 
-Create a Query Object in the `app/queries` directory.
-It's implementation should resemble the following:
+Create a query object in the `app/queries` directory.
+Its implementation should resemble the following:
 
 ```Ruby
 class ArticlesQuery
